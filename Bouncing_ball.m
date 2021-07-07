@@ -64,10 +64,10 @@ set(gcf,'Position',[50 50 1280 720]) % 720p
 % set(gcf,'Position',[50 50 854 480]) % 480p
 
 % Create and open video writer object
-v0 = VideoWriter('Bouncing_ball.avi');
-v0.Quality   = 100;
-v0.FrameRate = fR;
-open(v0);
+v = VideoWriter('Bouncing_ball.avi');
+v.Quality   = 100;
+v.FrameRate = fR;
+open(v);
 
 for i=1:length(t_ac)
     
@@ -83,11 +83,11 @@ for i=1:length(t_ac)
 
     % Adding frames
     frame = getframe(gcf);
-    writeVideo(v0,frame);
+    writeVideo(v,frame);
     
 end
 
-close(v0);
+close(v);
 
 %% Auxiliary functions
 
