@@ -72,7 +72,7 @@ set(gca,'xtick',0:5:x(end),'ytick',0:5:1.1*max(h_ac))
 set(gca,'FontName','Verdana','FontSize',18)
 
 % Create and open video writer object
-v = VideoWriter('Bouncing_ball.mp4','MPEG-4');
+v = VideoWriter('bouncing_ball.mp4','MPEG-4');
 v.Quality   = 100;
 v.FrameRate = fR;
 open(v);
