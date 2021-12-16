@@ -81,7 +81,7 @@ for i=1:length(t_ac)
     
     cla 
     plot(x(1:i) ,h_ac(1:i)  ,'-','Color',c(5,:),'LineWidth',3)
-    plot(x(i)   ,h_ac(i)    ,'o','Color',c(5,:),'MarkerFaceColor',cool(1),'MarkerSize',15)
+    plot(x(i)   ,h_ac(i)    ,'o','Color',c(5,:),'MarkerFaceColor',c(1,:),'MarkerSize',15)
     xlabel('Horizontal distance [m]');
     ylabel('Height [m]');
     title('Bouncing ball');
