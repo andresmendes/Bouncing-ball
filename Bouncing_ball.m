@@ -54,29 +54,34 @@ for i = 1:12
 end
 
 % LONGITUDINAL DYNAMICS
-vx  = 2;            % Horizontal speed      [m/s]
-x   = vx*t_ac;      % Horizontal position   [m]
+vx  = 1;                % Horizontal speed      [m/s]
+x   = vx*t_ac;          % Horizontal position   [m]
 
 %% Animation
 
+c = cool(6); % Colormap
+
 figure
-set(gcf,'Position',[50 50 1280 720]) % 720p
-% set(gcf,'Position',[50 50 854 480]) % 480p
+% set(gcf,'Position',[50 50 1280 720])  % YouTube: 720p
+% set(gcf,'Position',[50 50 854 480])   % YouTube: 480p
+set(gcf,'Position',[50 50 640 640])     % Social
+
+hold on ; grid on ; axis equal
+set(gca,'xlim',[0 x(end)],'ylim',[0 1.1*max(h_ac)])
+set(gca,'xtick',0:5:x(end),'ytick',0:5:1.1*max(h_ac))
+set(gca,'FontName','Verdana','FontSize',18)
 
 % Create and open video writer object
-v = VideoWriter('Bouncing_ball.avi');
+v = VideoWriter('Bouncing_ball.mp4','MPEG-4');
 v.Quality   = 100;
 v.FrameRate = fR;
 open(v);
 
 for i=1:length(t_ac)
     
-    hold on ; grid on ; axis equal
-    set(gca,'xlim',[0 x(end)],'ylim',[0 1.1*max(h_ac)])
-    set(gca,'xtick',0:5:x(end),'ytick',0:5:1.1*max(h_ac))
     cla 
-    plot(x(1:i) ,h_ac(1:i)  ,'b--')
-    plot(x(i)   ,h_ac(i)    ,'bo','MarkerFaceColor','b')
+    plot(x(1:i) ,h_ac(1:i)  ,'-','Color',c(5,:),'LineWidth',3)
+    plot(x(i)   ,h_ac(i)    ,'o','Color',c(5,:),'MarkerFaceColor',cool(1),'MarkerSize',15)
     xlabel('Horizontal distance [m]');
     ylabel('Height [m]');
     title('Bouncing ball');
